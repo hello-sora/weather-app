@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './WeatherApp.css';
 import search_icon from '../assets/search.png'
-import {Chart} from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -116,7 +115,7 @@ export const WeatherApp = () => {
         </div>
         {/* icon, location, temperature, condition, and chart */}
         {temperatureList && <div className=""><div>
-            {icon && <img className="weather-icon" src={icon}/>}
+            {icon && <img className="weather-icon" src={icon} alt=""/>}
         </div>
         <div className="weather-location"> {location} </div>
         <div className="weather-temperature"> {temperature} </div>
