@@ -1,6 +1,17 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It's a simple weather app.
+
+## Demo
+
+Hosted on Netlify: https://soras-weather-app.netlify.app/
+
+## Features
+
+- Search a city
+- Get the current temperature
+- Get the current weather condition
+- Shows a chart of the average temperature for the past week
 
 ## Available Scripts
 
