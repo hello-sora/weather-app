@@ -36,6 +36,8 @@ export const WeatherApp = () => {
 
     const [labels, setLabels] = useState();
 
+    const [condition, setCondition] = useState();
+
     let date = new Date();
 
     const options = {
@@ -68,26 +70,27 @@ export const WeatherApp = () => {
             return 0;
         }
 
-        // when input is not an empty value
+        // when input is not an empty value (inputting a city)
         let url = `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}&aqi=no`;
 
         let response = await fetch(url);
         let data = await response.json();
 
-        // set icon, temperature, and location
-        setTemperature(data.current.temp_f + "°F");
-        setLocation(data.location.name);
+        // set icon, location, temperature, and condition
         setIcon(data.current.condition.icon);
+        setLocation(data.location.name);
+        setTemperature(data.current.temp_f + "°");
+        setCondition(data.current.condition.text);
         createChart();
     }
     
-    // Logic to fetch past 7 days from API and create chart
+    // Logic to fetch past 7 days from API and create average temperature chart
     const createChart = async () => {
         const element = document.getElementsByClassName("cityInput")
         let dataList = [];
         let labelList = [];
         while (dataList.length < 7) {
-            labelList.push(date.getDate() + "-"+ parseInt(date.getMonth()+1) +"-"+ date.getFullYear());
+            labelList.push(parseInt(date.getMonth()+1) + "-"+ date.getDate() +"-"+ date.getFullYear());
             let label = date.getFullYear() + "-"+ parseInt(date.getMonth()+1) +"-"+ date.getDate();
             let url = `http://api.weatherapi.com/v1/history.json?key=${api_key}&q=${element[0].value}&dt=${label}`;
             let response = await fetch(url);
@@ -103,7 +106,7 @@ export const WeatherApp = () => {
 
 
   return (
-    // search bar to search cities
+    // search bar
     <div className='container'>
         <div className="search-bar">
             <input type="text" className="cityInput" placeholder='Search'/>
@@ -111,12 +114,13 @@ export const WeatherApp = () => {
                 <img src={search_icon} alt="" />
             </div>
         </div>
-        {/* icon, temperature, and location */}
+        {/* icon, location, temperature, condition, and chart */}
         {temperatureList && <div className=""><div>
-            {icon && <img className="weather-image" src={icon}/>}
+            {icon && <img className="weather-icon" src={icon}/>}
         </div>
-        <div className="weather-temperature"> {temperature} </div>
         <div className="weather-location"> {location} </div>
+        <div className="weather-temperature"> {temperature} </div>
+        <div className="weather-condition"> {condition} </div>
         <div className="chart">
             {temperatureList && <Line options={options} data={data} />}
         </div></div>}
