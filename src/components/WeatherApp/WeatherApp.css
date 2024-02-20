@@ -1,11 +1,11 @@
 /* Customize container (outline) and background for app */
 .container {
     width: 610px;
-    height: 830px;
+    height: 820px;
     margin: auto;
-    margin-top: 75px;
+    margin-top: 45px;
     border-radius: 12px;
-    background-image: linear-gradient(180deg, rgba(94,138,182,1) 0%, rgba(238,210,237,1) 100%)
+    background-image: linear-gradient(180deg, rgba(94,138,182,1) 0%, rgba(238,210,237,1) 100%);
 }
 
 /* Customize Search Bar */
@@ -70,8 +70,8 @@
 /* Customize Chart Display */
 .chart {
     display: flex;
+    margin: auto;
     margin-top: 30px;
-    margin-left: 17px;
-    width: 590px;
-    height: 800px;
+    width: 29vw;
+    height: 40vh;
 }
