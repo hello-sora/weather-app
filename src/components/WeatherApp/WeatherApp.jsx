@@ -70,7 +70,7 @@ export const WeatherApp = () => {
         }
 
         // when input is not an empty value (inputting a city)
-        let url = `http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}&aqi=no`;
+        let url = `https://api.weatherapi.com/v1/current.json?key=${api_key}&q=${element[0].value}&aqi=no`;
 
         let response = await fetch(url);
         let data = await response.json();
@@ -91,7 +91,7 @@ export const WeatherApp = () => {
         while (dataList.length < 7) {
             labelList.push(parseInt(date.getMonth()+1) + "-"+ date.getDate() +"-"+ date.getFullYear());
             let label = date.getFullYear() + "-"+ parseInt(date.getMonth()+1) +"-"+ date.getDate();
-            let url = `http://api.weatherapi.com/v1/history.json?key=${api_key}&q=${element[0].value}&dt=${label}`;
+            let url = `https://api.weatherapi.com/v1/history.json?key=${api_key}&q=${element[0].value}&dt=${label}`;
             let response = await fetch(url);
             let data = await response.json();
             dataList.push(data.forecast.forecastday[0].day.avgtemp_f);
