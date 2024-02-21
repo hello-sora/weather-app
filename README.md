@@ -11,7 +11,7 @@ Hosted on Netlify: https://soras-weather-app.netlify.app/
 - Search a city
 - Get the current temperature
 - Get the current weather condition
-- Shows a chart of the average temperature for the past week
+- Displays a graph of the average temperature for the past week
 
 ## Available Scripts
 
